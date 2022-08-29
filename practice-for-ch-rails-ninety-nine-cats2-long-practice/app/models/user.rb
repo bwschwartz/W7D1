@@ -40,15 +40,15 @@ class User < ApplicationRecord
     password_object.is_password?(password)
   end
 
-  private
-  def ensure_session_token
-    self.session_token ||= generate_unique_session_token
-  end
-
   def reset_session_token!
     self.session_token = generate_unique_session_token
     self.save!
     self.session_token
+  end
+
+  private
+  def ensure_session_token
+    self.session_token ||= generate_unique_session_token
   end
 
   def generate_unique_session_token
