@@ -1,0 +1,8 @@
+<h1>This is the index page!<h1>
+
+<% @users.each do |user| %>
+  <div class="user_box">
+    <h3> <%= user.id %> <%= user.username %> </h3>
+  </div>
+<% end %>
+
